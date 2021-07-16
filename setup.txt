@@ -1,4 +1,5 @@
 [config]
+path=./sample-data/Dischargemode-3500mAh.csv
 state_of_charge=1
 nominal_capacity=1400
 coulomb_efficient=0.99
