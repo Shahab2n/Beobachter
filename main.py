@@ -37,6 +37,7 @@ if __name__ == '__main__':
          Read the program setup from setup.text
          NOTE: if boolean is false please leave the value empty for charge_cycle
      '''
+
     parser = configparser.ConfigParser()
     parser.read("setup.txt")
 
@@ -52,6 +53,8 @@ if __name__ == '__main__':
     # Daten einlesen
     output_from_csv = []
     with open(input_filename, 'r+') as in_file:
+        print("Start reading csv file from {0}".format(parser.get("config", "path")))
+
         reader = csv.reader(in_file)
 
         csv_import = csv.reader(in_file, quoting=csv.QUOTE_NONNUMERIC)
@@ -75,6 +78,7 @@ if __name__ == '__main__':
         soc_list.append(soc)
         temp_soc = soc
 
+    print("Creating the report to {0}".format(output_filename))
     # alle berchenten daten abspeichern
     with open(output_filename, 'w+') as out_file:
         out_file.write("StateOfCharge,    StateOfHealth,    StateOfFunction\n")
